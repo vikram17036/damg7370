@@ -213,7 +213,7 @@
 								},
 								"sink": {
 									"name": "LICENSE_ISSUE_DATE",
-									"type": "DateTime"
+									"type": "String"
 								}
 							},
 							{
@@ -232,7 +232,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "ANIMAL_NAME",
+									"name": "ANIMAL_S_NAME",
 									"type": "String"
 								}
 							},
