@@ -195,7 +195,14 @@
 							"type": "SnowflakeImportCopyCommand"
 						}
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "ls_stageblobstoragedamg7370",
+							"type": "LinkedServiceReference"
+						},
+						"path": "snowstaging"
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
