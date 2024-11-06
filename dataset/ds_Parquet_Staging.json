@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Seattle_Pet_Licenses_20241009.parquet"
+				"fileSystem": "silver"
 			},
 			"compressionCodec": "snappy"
 		},
