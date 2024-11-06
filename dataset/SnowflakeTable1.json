@@ -46,7 +46,7 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "DEMO",
+			"schema": "DBO",
 			"table": "STG_SEATTLE_PET_LICENSES"
 		}
 	}
