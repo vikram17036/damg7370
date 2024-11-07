@@ -11,7 +11,7 @@
 			{
 				"name": "BREED_SK",
 				"type": "NUMBER",
-				"precision": 10,
+				"precision": 38,
 				"scale": 0
 			},
 			{

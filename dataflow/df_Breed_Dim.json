@@ -68,7 +68,7 @@
 				"     validateSchema: false,",
 				"     format: 'table') ~> sourceSnowFlake",
 				"source(output(",
-				"          MAXBREEDSK as integer",
+				"          MAXBREEDSK as decimal(38,0)",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
