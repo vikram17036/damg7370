@@ -19,7 +19,15 @@
 					"name": "source2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "SnowflakeTable2",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "join1"
@@ -32,6 +40,9 @@
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     DI_JOB_ID as string (\"59\")",
+				"}",
 				"source(output(",
 				"          state_fips as string,",
 				"          state as string,",
@@ -45,11 +56,11 @@
 				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source(output(",
-				"          MAXLOCATIONSK as decimal(38,0)",
+				"          MAXLOCATIONSK as decimal(10,0)",
 				"     ),",
 				"     allowSchemaDrift: false,",
 				"     validateSchema: false,",
-				"     query: 'SELECT NVL(MAX(BREED_SK),0) as MAXLOCATIONSK FROM DEMO.BREED_DIM',",
+				"     query: 'SELECT NVL(MAX(LOCATION_SK),0) as MAXLOCATIONSK FROM DEMO.LOCATION_DIM',",
 				"     format: 'query') ~> source2",
 				"source1, source2 join(1==1,",
 				"     joinType:'cross',",
@@ -61,7 +72,34 @@
 				"     stepValue: 1L) ~> surrogateKey1",
 				"surrogateKey1 derive(location_SK = MAXLOCATIONSK + RowNum,",
 				"          DI_CREATED_DATE = toString(currentDate(), 'yyyy-MM-dd'),",
-				"          DI_JOB_ID = ERROR_FUNCTION('')) ~> derivedColumn1"
+				"          DI_JOB_ID = $DI_JOB_ID) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          LOCATION_SK as string,",
+				"          ZIP as string,",
+				"          CITY as string,",
+				"          STATE as string,",
+				"          DI_JOB_ID as string,",
+				"          DI_CREATED_DT as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     truncate:true,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     stageInsert: true,",
+				"     mapColumn(",
+				"          LOCATION_SK = location_SK,",
+				"          ZIP = zipcode,",
+				"          CITY = city,",
+				"          STATE = state,",
+				"          DI_JOB_ID,",
+				"          DI_CREATED_DT = DI_CREATED_DATE",
+				"     )) ~> sink1"
 			]
 		}
 	}
