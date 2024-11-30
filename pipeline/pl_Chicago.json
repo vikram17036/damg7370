@@ -15,8 +15,630 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CRASH_RECORD_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRASH_RECORD_ID",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_DATE_EST_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRASH_DATE_EST_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_DATE",
+									"type": "DateTime",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRASH_DATE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTED_SPEED_LIMIT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "POSTED_SPEED_LIMIT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "TRAFFIC_CONTROL_DEVICE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TRAFFIC_CONTROL_DEVICE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DEVICE_CONDITION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DEVICE_CONDITION",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "WEATHER_CONDITION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "WEATHER_CONDITION",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "LIGHTING_CONDITION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LIGHTING_CONDITION",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "FIRST_CRASH_TYPE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FIRST_CRASH_TYPE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "TRAFFICWAY_TYPE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TRAFFICWAY_TYPE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "LANE_CNT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LANE_CNT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "ALIGNMENT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ALIGNMENT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "ROADWAY_SURFACE_COND",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ROADWAY_SURFACE_COND",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "ROAD_DEFECT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ROAD_DEFECT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "REPORT_TYPE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "REPORT_TYPE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_TYPE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRASH_TYPE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "INTERSECTION_RELATED_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INTERSECTION_RELATED_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "NOT_RIGHT_OF_WAY_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NOT_RIGHT_OF_WAY_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "HIT_AND_RUN_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "HIT_AND_RUN_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DAMAGE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DAMAGE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_POLICE_NOTIFIED",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DATE_POLICE_NOTIFIED",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PRIM_CONTRIBUTORY_CAUSE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PRIM_CONTRIBUTORY_CAUSE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "SEC_CONTRIBUTORY_CAUSE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SEC_CONTRIBUTORY_CAUSE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "STREET_NO",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "STREET_NO",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "STREET_DIRECTION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "STREET_DIRECTION",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "STREET_NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "STREET_NAME",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "BEAT_OF_OCCURRENCE",
+									"type": "Int64",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BEAT_OF_OCCURRENCE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PHOTOS_TAKEN_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PHOTOS_TAKEN_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "STATEMENTS_TAKEN_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "STATEMENTS_TAKEN_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DOORING_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DOORING_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "WORK_ZONE_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "WORK_ZONE_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "WORK_ZONE_TYPE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "WORK_ZONE_TYPE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "WORKERS_PRESENT_I",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "WORKERS_PRESENT_I",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "NUM_UNITS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NUM_UNITS",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "MOST_SEVERE_INJURY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MOST_SEVERE_INJURY",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_TOTAL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INJURIES_TOTAL",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_FATAL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INJURIES_FATAL",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_INCAPACITATING",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INJURIES_INCAPACITATING",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_NON_INCAPACITATING",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INJURIES_NON_INCAPACITATING",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_REPORTED_NOT_EVIDENT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INJURIES_REPORTED_NOT_EVIDENT",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_NO_INDICATION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INJURIES_NO_INDICATION",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_UNKNOWN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INJURIES_UNKNOWN",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_HOUR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRASH_HOUR",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_DAY_OF_WEEK",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRASH_DAY_OF_WEEK",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_MONTH",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CRASH_MONTH",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "LATITUDE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LATITUDE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "LONGITUDE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LONGITUDE",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "LOCATION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LOCATION",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Delimited_chicago_traffic",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": "\"\"",
+							"Directory": "\"\""
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_Parquet_Staging",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
