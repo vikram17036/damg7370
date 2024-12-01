@@ -23,7 +23,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT \n    t.name AS table_name, \n    s.name AS schema_name\nFROM \n    sys.tables t\nJOIN \n    sys.schemas s\nON \n    t.schema_id = s.schema_id\nWHERE \n    type = 'U'\n    AND s.name = 'dbo'",
+							"value": "SELECT \n    t.name AS table_name, \n    s.name AS schema_name\nFROM \n    sys.tables t\nJOIN \n    sys.schemas s\nON \n    t.schema_id = s.schema_id\nWHERE \n    type = 'U'\n    AND s.name = '@{pipeline().parameters.Sname}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -80,6 +80,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"Sname": {
+				"type": "string",
+				"defaultValue": "dbo"
+			}
+		},
 		"variables": {
 			"Tname": {
 				"type": "String"
