@@ -1,0 +1,57 @@
+{
+	"name": "dsazuresqldbcity",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Schema": {
+				"type": "string"
+			},
+			"Table_Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "city_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "country_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "last_update",
+				"type": "timestamp"
+			},
+			{
+				"name": "DI_JOB_ID",
+				"type": "varchar"
+			},
+			{
+				"name": "DI_CREATED_DT",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().Schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().Table_Name",
+				"type": "Expression"
+			}
+		}
+	}
+}
