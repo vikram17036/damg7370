@@ -119,7 +119,7 @@
 									"parameters": {
 										"Directory": "na",
 										"FileName": {
-											"value": "@concat(\r\n    item().table_name,'.parquet'\r\n)",
+											"value": "@concat(\n    item().table_name,'.parquet'\n)",
 											"type": "Expression"
 										}
 									}
@@ -194,7 +194,10 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"Directory": "na",
-										"FileName": "@concat(     item().table_name,'.parquet' )"
+										"FileName": {
+											"value": "@concat( \n    item().table_name,'.parquet'\n)",
+											"type": "Expression"
+										}
 									}
 								}
 							],
