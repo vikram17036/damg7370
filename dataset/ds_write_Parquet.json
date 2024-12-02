@@ -27,6 +27,23 @@
 			},
 			"compressionCodec": "snappy"
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "city_id",
+				"type": "INT32"
+			},
+			{
+				"name": "city",
+				"type": "UTF8"
+			},
+			{
+				"name": "country_id",
+				"type": "INT32"
+			},
+			{
+				"name": "last_update",
+				"type": "INT96"
+			}
+		]
 	}
 }
