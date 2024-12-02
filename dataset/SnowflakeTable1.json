@@ -8,7 +8,7 @@
 		"parameters": {
 			"SchemaName": {
 				"type": "string",
-				"defaultValue": "Sakila"
+				"defaultValue": "sakila"
 			},
 			"TableName": {
 				"type": "string",
