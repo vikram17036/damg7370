@@ -22,28 +22,14 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"folderPath": "@if(equals(dataset().Directory,'na'),'',dataset().Directory)",
+				"folderPath": {
+					"value": "@if(equals(dataset().Directory,'na'),'',dataset().Directory)",
+					"type": "Expression"
+				},
 				"fileSystem": "silver"
 			},
 			"compressionCodec": "snappy"
 		},
-		"schema": [
-			{
-				"name": "city_id",
-				"type": "INT32"
-			},
-			{
-				"name": "city",
-				"type": "UTF8"
-			},
-			{
-				"name": "country_id",
-				"type": "INT32"
-			},
-			{
-				"name": "last_update",
-				"type": "INT96"
-			}
-		]
+		"schema": []
 	}
 }

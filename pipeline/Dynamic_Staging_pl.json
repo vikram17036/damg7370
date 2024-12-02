@@ -138,7 +138,7 @@
 								}
 							],
 							"policy": {
-								"timeout": "0.12:00:00",
+								"timeout": "0.00:30:00",
 								"retry": 0,
 								"retryIntervalInSeconds": 30,
 								"secureOutput": false,
@@ -148,22 +148,6 @@
 							"typeProperties": {
 								"source": {
 									"type": "ParquetSource",
-									"additionalColumns": [
-										{
-											"name": "DI_JOB_ID",
-											"value": {
-												"value": "@pipeline().parameters.JobID",
-												"type": "Expression"
-											}
-										},
-										{
-											"name": "DI_CREATED_DT",
-											"value": {
-												"value": "@utcNow()",
-												"type": "Expression"
-											}
-										}
-									],
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
@@ -185,19 +169,16 @@
 										"referenceName": "ls_stageblobstoragedamg7370",
 										"type": "LinkedServiceReference"
 									},
-									"path": "snowstaging"
+									"path": "assignment"
 								}
 							},
 							"inputs": [
 								{
-									"referenceName": "ds_write_Parquet",
+									"referenceName": "ds_Parquet_Staging",
 									"type": "DatasetReference",
 									"parameters": {
 										"Directory": "na",
-										"FileName": {
-											"value": "@concat( \n    item().table_name,'.parquet'\n)",
-											"type": "Expression"
-										}
+										"FileName": "@concat(     item().table_name,'.parquet' )"
 									}
 								}
 							],
@@ -207,7 +188,10 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"SchemaName": "SAKILA",
-										"TableName": "@toUpper(item().table_name)"
+										"TableName": {
+											"value": "@toUpper(item().table_name)",
+											"type": "Expression"
+										}
 									}
 								}
 							]
@@ -219,10 +203,7 @@
 		"parameters": {
 			"Sname": {
 				"type": "string",
-				"defaultValue": "dbo"
-			},
-			"JobID": {
-				"type": "string"
+				"defaultValue": "source"
 			}
 		},
 		"variables": {

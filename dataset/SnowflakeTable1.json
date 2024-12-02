@@ -8,11 +8,10 @@
 		"parameters": {
 			"SchemaName": {
 				"type": "string",
-				"defaultValue": "DBO"
+				"defaultValue": "SAKILA"
 			},
 			"TableName": {
-				"type": "string",
-				"defaultValue": "CITY"
+				"type": "string"
 			}
 		},
 		"annotations": [],
