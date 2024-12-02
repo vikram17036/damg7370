@@ -46,8 +46,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "DEMO",
-			"table": "SEATTLEPETLICENSES"
+			"schema": "SAKILA",
+			"table": "CITY"
 		}
 	}
 }
