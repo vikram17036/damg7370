@@ -191,7 +191,11 @@
 							"inputs": [
 								{
 									"referenceName": "ds_write_Parquet",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"Directory": "na",
+										"FileName": "@concat(     item().table_name,'.parquet' )"
+									}
 								}
 							],
 							"outputs": [
@@ -209,6 +213,9 @@
 			"Sname": {
 				"type": "string",
 				"defaultValue": "dbo"
+			},
+			"JobID": {
+				"type": "string"
 			}
 		},
 		"variables": {
