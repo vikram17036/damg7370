@@ -201,7 +201,11 @@
 							"outputs": [
 								{
 									"referenceName": "SnowflakeTable1",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"SchemaName": "SAKILA",
+										"TableName": "@toUpper(item().table_name)"
+									}
 								}
 							]
 						}
